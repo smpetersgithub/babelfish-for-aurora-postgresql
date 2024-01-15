@@ -5,14 +5,14 @@
 These scripts typically help with configuration, diagnostics, and compatibility checks, making the migration and interoperability between SQL Server and Aurora PostgreSQL smoother. Here are some common and useful types of scripts:
 
 -------
-1. **Version and Compatibility Checks:**
+1. **Version and Compatibility Checks**
    Scripts to check the version of Babelfish and ensure compatibility with SQL Server syntax.
    ```sql
    SELECT SERVERPROPERTY('babelfishversion') AS BabelfishVersion, aurora_version() AS AuroraPostgreSQLVersion;
    ```
 -------
 
-2. **Database Creation and Configuration:**
+2. **Database Creation and Configuration**
    Scripts to create databases and configure them for use with Babelfish.
    ```sql
    CREATE DATABASE myDatabase;
@@ -20,7 +20,7 @@ These scripts typically help with configuration, diagnostics, and compatibility 
    ```
 -------
 
-3. **Escape Hatches Configuration:**
+3. **Escape Hatches Configuration**
    Adjusting Babelfish escape hatches controls how certain SQL Server behaviors are handled.
    ```sql
    EXECUTE sp_babelfish_configure 'escape_hatch_session_setting', 'ignore';
@@ -28,14 +28,14 @@ These scripts typically help with configuration, diagnostics, and compatibility 
    ```
 -------
 
-4. **Object Mapping Information:**
+4. **Object Mapping Information**
    Scripts to check the mapping of SQL Server objects to PostgreSQL.
    ```sql
    SELECT * FROM sys.babelfish_namespace_ext WHERE dbname = 'myDatabase';
    ```
 -------
 
-5. **Monitoring and Diagnostics:**
+5. **Monitoring and Diagnostics**
    Queries to monitor the performance and diagnose issues.
    ```sql
    SELECT * FROM pg_stat_activity WHERE datname = 'myDatabase';
@@ -43,7 +43,7 @@ These scripts typically help with configuration, diagnostics, and compatibility 
    ```
 -------
 
-6. **Security and User Management:**
+6. **Security and User Management**
    Managing users and permissions is especially important due to differences in security models between SQL Server and PostgreSQL.
    ```sql
    CREATE USER myUser WITH PASSWORD 'myPassword';
@@ -51,7 +51,7 @@ These scripts typically help with configuration, diagnostics, and compatibility 
    ```
 -------
 
-7. **Data Import/Export:**
+7. **Data Import/Export**
    Scripts to facilitate data migration between SQL Server and Aurora PostgreSQL.
    ```sql
    -- Exporting data from SQL Server
@@ -62,7 +62,7 @@ These scripts typically help with configuration, diagnostics, and compatibility 
    ```
 -------
 
-8. **Routine Maintenance Tasks:**
+8. **Routine Maintenance Tasks**
    Regular maintenance tasks like vacuuming, analyzing tables, or checking for index bloat.
    ```sql
    VACUUM FULL VERBOSE ANALYZE myTable;
@@ -70,7 +70,7 @@ These scripts typically help with configuration, diagnostics, and compatibility 
    ```
 -------
 
-9. **Transaction and Lock Management:**
+9. **Transaction and Lock Management**
    Scripts to view and manage transactions and locks, particularly useful in troubleshooting performance issues.
    ```sql
    SELECT * FROM pg_locks WHERE granted = false;
@@ -78,3 +78,21 @@ These scripts typically help with configuration, diagnostics, and compatibility 
    ```
 -------
 
+10.  **Check the mapping between Babelfish and PostgreSQL**
+```sql
+SELECT 
+    pg.dbname AS babelfishDBName,
+    be.orig_name AS schemaname,
+    pg.nspname AS pgSchemaNameForDMS,
+    pg.oid,
+    SCHEMA_ID(be.orig_name) AS MapsToPGOID
+FROM 
+    sys.pg_namespace_ext AS pg 
+INNER JOIN 
+    sys.babelfish_namespace_ext AS be 
+    ON pg.nspname = be.nspname 
+WHERE 
+    dbname = DB_NAME() 
+ORDER BY 
+    schemaname;
+```
