@@ -1,0 +1,470 @@
+Report for: AdvancedSQLPuzzlesBabelfish : Generated at 2024-Jan-15 12:38:50
+---------------------------------------------------------------------------
+
+Babelfish Compass version 2023-12, December 2023
+Compatibility assessment tool for Babelfish for PostgreSQL
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+Notice:
+This report contains an assessment based on the resources you scanned with the
+Babelfish Compass tool. The information contained in this report, including whether
+or not a feature is 'supported' or 'not supported', is made available 'as is',
+and may be incomplete, incorrect, and subject to interpretation.
+You should not base decisions on the information in this report without independently
+validating it against the actual SQL/DDL code on which this report is based.
+
+
+  Babelfish Compass User Guide : https://raw.githubusercontent.com/babelfish-for-postgresql/babelfish_compass/main/BabelfishCompass_UserGuide.pdf
+
+
+--- Report Setup ---------------------------------------------------------------
+BabelfishFeatures.cfg file : v.3.4.0, Dec-2023
+Target Babelfish version   : v.3.4.0 (PG 15.5)
+Command line arguments     : AdvancedSQLPuzzlesBabelfish
+Command line input files   : c:\BabelfishCompass\AdvancedSQLPUzzlesBabelfish.sql
+User .cfg file (overrides) : C:\Users\smpet\Documents\BabelfishCompass\BabelfishCompassUser.cfg
+Report name                : AdvancedSQLPuzzlesBabelfish
+This report                : C:\Users\smpet\Documents\BabelfishCompass\AdvancedSQLPuzzlesBabelfish\report-AdvancedSQLPuzzlesBabelfish-bbf.3.4.0-2024-Jan-15-12.38.50.html
+Session log                : log\session-log-AdvancedSQLPuzzlesBabelfish-bbf.3.4.0-2024-Jan-15-12.38.43.html
+================================================================================
+
+Note: A newer version of Babelfish Compass has been released!
+You are currently running version '2023-12', but version '2023-12-a' is available.
+Download the latest from https://github.com/babelfish-for-postgresql/babelfish_compass/releases/latest
+
+================================================================================
+
+--------------------------------------------------------------------------------
+--- Executive Summary for Babelfish v.3.4.0 ------------------------------------
+--------------------------------------------------------------------------------
+Total #lines of SQL/DDL: 3958      Total SQL features: 1574
+#Procedures/functions/triggers/views: 2    #Tables: 81
+
+SQL features not supported by Babelfish (total/unique): 7/6
+Estimated complexity of not-supported features (total/unique): medium:7/6
+
+--------------------------------------------------------------------------------
+--- Table Of Contents ----------------------------------------------------------
+--------------------------------------------------------------------------------
+    Executive Summary
+    Applications Analyzed
+    Assessment Summary
+    Object Count
+
+    Summary of SQL Features 'Not Supported'
+    Summary of SQL Features 'Review Manually'
+    Summary of SQL Features 'Review Semantics'
+    Summary of SQL Features 'Review Performance'
+    Summary of SQL Features 'Ignored'
+    Summary of SQL Features 'Supported'
+
+    X-ref: 'Not Supported' by SQL feature
+    X-ref: 'Review Manually' by SQL feature
+    X-ref: 'Review Semantics' by SQL feature
+    X-ref: 'Review Performance' by SQL feature
+    X-ref: 'Ignored' by SQL feature
+    X-ref: 'Supported' by SQL feature
+
+    X-ref: 'Not Supported' by object
+    X-ref: 'Review Manually' by object
+    X-ref: 'Review Semantics' by object
+    X-ref: 'Review Performance' by object
+    X-ref: 'Ignored' by object
+    X-ref: 'Supported' by object
+
+
+--------------------------------------------------------------------------------
+--- Applications Analyzed (1) --------------------------------------------------
+--------------------------------------------------------------------------------
+
+
+     AdvancedSQLPUzzlesBabelfish (3958 lines SQL)
+
+--------------------------------------------------------------------------------
+--- Assessment Summary ---------------------------------------------------------
+--------------------------------------------------------------------------------
+
+
+    #applications                     :    1 
+    #input files                      :    1 
+    #SQL batches                      :  376    (with syntax error: 1) 
+    #lines SQL/DDL processed          : 3958 
+    #lines SQL in objects             :   28    (procedures/functions/triggers/views) 
+    Total #SQL features               : 1574 
+    Supported (total/unique)          : 1560/138 
+    Not Supported (total/unique)      :    7/6    (complexity: medium:7/6) 
+    Review Semantics (total/unique)   :    2/1 
+    Review Performance (total/unique) :    1/1 
+    Review Manually (total/unique)    :    2/1 
+    Ignored (total/unique)            :    2/1 
+
+--------------------------------------------------------------------------------
+--- Object Count ---------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+
+    CURSOR                 :  1                                      
+    TABLE                  :  3 (6 columns)    without issues: 3 of 3
+    TABLE #tmptable        : 78 (210 columns)                        
+    TRIGGER                :  2 (28 lines SQL) without issues: 2 of 2
+    constraint CHECK       :  8                                      
+    constraint FOREIGN KEY :  4                                      
+    constraint PRIMARY KEY : 76                                      
+
+=== SQL Features Report ========================================================
+
+--------------------------------------------------------------------------------
+--- SQL features 'Not Supported' in Babelfish v.3.4.0 --- (total=7/6) ----------
+--------------------------------------------------------------------------------
+
+
+Note: the estimated complexity of a not-supported feature (low/medium/high) is indicated in square brackets
+
+Aggregate functions (1/1)
+   STRING_AGG() WITHIN GROUP [medium] : 1
+Built-in functions (2/2)
+   GENERATE_SERIES() [medium] : 1
+   STRING_SPLIT(), with 3 arguments [medium] : 1
+DML (4/3)
+   DELETE, WITH (Common Table Expression) as target [medium] : 1
+   SELECT TOP <number> PERCENT [medium] : 2
+   SELECT..UNPIVOT [medium] : 1
+
+--------------------------------------------------------------------------------
+--- SQL features 'Review Manually' in Babelfish v.3.4.0 --- (total=2/1) --------
+--------------------------------------------------------------------------------
+
+
+Note: Items in this section could not be assessed by Babelfish Compass
+
+Dynamic SQL (2/1)
+   sp_executesql: dynamic SQL statements must be analyzed manually [medium] : 2
+
+--------------------------------------------------------------------------------
+--- SQL features 'Review Semantics' in Babelfish v.3.4.0 --- (total=2/1) -------
+--------------------------------------------------------------------------------
+
+
+
+DML (2/1)
+   SELECT..INTO with ORDER BY [medium] : 2
+
+--------------------------------------------------------------------------------
+--- SQL features 'Review Performance' in Babelfish v.3.4.0 --- (total=1/1) -----
+--------------------------------------------------------------------------------
+
+
+
+DDL (1/1)
+   Computed column (not persisted, but created as persisted in PG) [medium] : 1
+
+--------------------------------------------------------------------------------
+--- SQL features 'Ignored' in Babelfish v.3.4.0 --- (total=2/1) ----------------
+--------------------------------------------------------------------------------
+
+
+
+DML (2/1)
+   Query hint MAXRECURSION : 2
+
+--------------------------------------------------------------------------------
+--- SQL features 'Supported' in Babelfish v.3.4.0 --- (total=1560/138) ---------
+--------------------------------------------------------------------------------
+
+
+
+@@variables (2/1)
+   @@ROWCOUNT : 2
+Aggregate functions (137/14)
+   AVG() : 6
+   COUNT() : 26
+   DENSE_RANK() : 3
+   FIRST_VALUE() : 1
+   LAG() : 15
+   LAST_VALUE() : 1
+   LEAD() : 3
+   MAX() : 35
+   MIN() : 16
+   NTILE() : 1
+   RANK() : 3
+   ROW_NUMBER() : 11
+   STRING_AGG() : 3
+   SUM() : 13
+Built-in functions (132/23)
+   ABS() : 1
+   CAST() : 24
+   CHARINDEX() : 7
+   CHECKSUM(arg) : 1
+   COALESCE() : 2
+   CONCAT() : 13
+   CONVERT() : 1
+   DATEADD() : 8
+   DATEDIFF() : 2
+   DATEPART() : 9
+   GETDATE() : 14
+   HASHBYTES('sha2_512') : 1
+   ISNULL() : 2
+   LEFT() : 1
+   LEN() : 10
+   REPLACE() : 11
+   REVERSE() : 3
+   RIGHT() : 2
+   STRING_SPLIT() : 3
+   STUFF() : 1
+   SUBSTRING() : 6
+   TRIM() : 1
+   YEAR() : 9
+Control flow (9/4)
+   IF : 2
+   PRINT : 1
+   RAISERROR : 2
+   WHILE : 4
+Cursors (7/6)
+   @@FETCH_STATUS : 1
+   CLOSE : 1
+   DEALLOCATE CURSOR : 1
+   DECLARE CURSOR : 1
+   FETCH NEXT : 2
+   OPEN : 1
+Databases (1/1)
+   USE test : 1
+DDL (277/13)
+   ALTER TABLE..ADD column : 1
+   ALTER TABLE..ALTER COLUMN : 5
+   Constraint CHECK, in ALTER TABLE : 7
+   Constraint CHECK, in CREATE TABLE : 1
+   Constraint column DEFAULT, in CREATE TABLE : 4
+   Constraint FOREIGN KEY, in ALTER TABLE : 3
+   Constraint FOREIGN KEY, in CREATE TABLE : 1
+   Constraint PRIMARY KEY/UNIQUE, in ALTER TABLE : 1
+   Constraint PRIMARY KEY/UNIQUE, in CREATE TABLE : 75
+   CREATE TABLE : 3
+   CREATE TABLE #tmptable : 78
+   DROP TABLE : 97
+   FK constraint referencing DB name : 1
+DML (476/22)
+   CROSS APPLY (lateral join) : 4
+   CROSS JOIN : 5
+   DELETE : 1
+   EXCEPT : 2
+   FULL OUTER JOIN : 2
+   INNER JOIN : 27
+   INSERT..SELECT : 3
+   INSERT..SELECT, WITH (Common Table Expression) : 1
+   INSERT..VALUES : 78
+   LEFT OUTER JOIN : 14
+   SELECT : 146
+   SELECT in Common Table Expression : 92
+   SELECT subquery : 42
+   SELECT TOP <number> : 9
+   SELECT..INTO : 1
+   SELECT..INTO #tmptable : 15
+   SELECT..ORDER BY OFFSET..FETCH : 2
+   SELECT..PIVOT : 2
+   Table value constructor: VALUES(...) : 1
+   UNION : 16
+   UNION ALL : 8
+   UPDATE : 5
+Dynamic SQL (2/1)
+   EXECUTE sp_executesql : 2
+Operators (254/14)
+   Arithmetic operator % (modulo) : 3
+   Arithmetic operator * : 1
+   Arithmetic operator + : 4
+   Arithmetic operator - : 23
+   Arithmetic operator / : 2
+   Comparison operator != : 1
+   Comparison operator < : 10
+   Comparison operator <= : 6
+   Comparison operator <> : 17
+   Comparison operator = : 131
+   Comparison operator > : 19
+   Comparison operator >= : 16
+   LIKE operator : 5
+   String concatenation operator + : 16
+SET options (1/1)
+   SET NOCOUNT ON : 1
+Transactions (2/1)
+   ROLLBACK TRANSACTION, in trigger : 2
+Triggers (2/1)
+   CREATE TRIGGER, FOR/AFTER INSERT : 2
+Miscellaneous SQL Features (5/2)
+   Variable assignment by SELECT @v = : 2
+   Variable assignment by SET @v = : 3
+XML (1/1)
+   SELECT FOR XML PATH : 1
+Datatype conversion (25/7)
+   CAST() to DATETIME : 12
+   CAST() to FLOAT : 1
+   CAST() to INTEGER : 2
+   CAST() to NVARCHAR(MAX) : 1
+   CAST() to VARCHAR : 3
+   CAST() to VARCHAR(MAX) : 5
+   CONVERT() to NVARCHAR(MAX) : 1
+Datatypes (227/26)
+   BIGINT variable : 1
+   CHAR(1) column : 7
+   DATE column : 17
+   DATETIME column : 5
+   INTEGER column : 91
+   INTEGER IDENTITY(1,1) column : 3
+   INTEGER variable (with default value) : 6
+   MONEY column : 15
+   NVARCHAR(1000) variable : 2
+   NVARCHAR(MAX) variable : 1
+   VARCHAR(   1) column : 1
+   VARCHAR(   2) column : 3
+   VARCHAR(   3) column : 1
+   VARCHAR(  10) column : 1
+   VARCHAR(  12) column : 1
+   VARCHAR(  14) column : 1
+   VARCHAR(  20) column : 2
+   VARCHAR(  30) column : 2
+   VARCHAR(  50) column : 8
+   VARCHAR( 100) column : 50
+   VARCHAR( 200) column : 1
+   VARCHAR( 255) column : 2
+   VARCHAR( 256) column : 1
+   VARCHAR(5000) column : 1
+   VARCHAR(8000) column : 1
+   VARCHAR(MAX) variable (with default value) : 3
+
+
+--------------------------------------------------------------------------------
+--- X-ref: 'Not Supported' by SQL feature --------------------------------------
+--------------------------------------------------------------------------------
+
+
+
+To generate this section, specify these options with -reportoption:
+     'xref'  or  'xref=feature'
+For more options and examples, use -help -reportoption
+
+--------------------------------------------------------------------------------
+--- X-ref: 'Review Manually' by SQL feature ------------------------------------
+--------------------------------------------------------------------------------
+
+
+
+To generate this section, specify these options with -reportoption:
+     'xref'  or  'xref=feature'
+For more options and examples, use -help -reportoption
+
+--------------------------------------------------------------------------------
+--- X-ref: 'Review Semantics' by SQL feature -----------------------------------
+--------------------------------------------------------------------------------
+
+
+
+To generate this section, specify these options with -reportoption:
+     'xref'  or  'xref=feature'
+For more options and examples, use -help -reportoption
+
+--------------------------------------------------------------------------------
+--- X-ref: 'Review Performance' by SQL feature ---------------------------------
+--------------------------------------------------------------------------------
+
+
+
+To generate this section, specify these options with -reportoption:
+     'xref'  or  'xref=feature'
+For more options and examples, use -help -reportoption
+
+--------------------------------------------------------------------------------
+--- X-ref: 'Ignored' by SQL feature --------------------------------------------
+--------------------------------------------------------------------------------
+
+
+
+To generate this section, specify these options with -reportoption:
+     'xref'  or  'xref=feature', and 'status=ignored' or 'status=all'
+For more options and examples, use -help -reportoption
+
+--------------------------------------------------------------------------------
+--- X-ref: 'Supported' by SQL feature ------------------------------------------
+--------------------------------------------------------------------------------
+
+
+
+To generate this section, specify these options with -reportoption:
+     'xref'  or  'xref=feature', and 'status=supported' or 'status=all'
+For more options and examples, use -help -reportoption
+
+--------------------------------------------------------------------------------
+--- X-ref: 'Not Supported' by object -------------------------------------------
+--------------------------------------------------------------------------------
+
+
+
+To generate this section, specify these options with -reportoption:
+     'xref'  or  'xref=object'
+For more options and examples, use -help -reportoption
+
+
+--------------------------------------------------------------------------------
+--- X-ref: 'Review Manually' by object -----------------------------------------
+--------------------------------------------------------------------------------
+
+
+
+To generate this section, specify these options with -reportoption:
+     'xref'  or  'xref=object'
+For more options and examples, use -help -reportoption
+
+
+--------------------------------------------------------------------------------
+--- X-ref: 'Review Semantics' by object ----------------------------------------
+--------------------------------------------------------------------------------
+
+
+
+To generate this section, specify these options with -reportoption:
+     'xref'  or  'xref=object'
+For more options and examples, use -help -reportoption
+
+
+--------------------------------------------------------------------------------
+--- X-ref: 'Review Performance' by object --------------------------------------
+--------------------------------------------------------------------------------
+
+
+
+To generate this section, specify these options with -reportoption:
+     'xref'  or  'xref=object'
+For more options and examples, use -help -reportoption
+
+
+--------------------------------------------------------------------------------
+--- X-ref: 'Ignored' by object -------------------------------------------------
+--------------------------------------------------------------------------------
+
+
+
+To generate this section, specify these options with -reportoption:
+     'xref'  or  'xref=object', and 'status=ignored' or 'status=all'
+For more options and examples, use -help -reportoption
+
+
+--------------------------------------------------------------------------------
+--- X-ref: 'Supported' by object -----------------------------------------------
+--------------------------------------------------------------------------------
+
+
+
+To generate this section, specify these options with -reportoption:
+     'xref'  or  'xref=object', and 'status=supported' or 'status=all'
+For more options and examples, use -help -reportoption
+
+
+================================================================================
+
+--- Run Metrics ----------------------------------------------------------------
+Run start            : 15-Jan-2024 12:38:43
+Run end              : 15-Jan-2024 12:38:50
+Run time             : 5 seconds
+#Lines of SQL        : 3958  (791 lines/sec)
+#syntax errors       : 1  (see C:\Users\smpet\Documents\BabelfishCompass\AdvancedSQLPuzzlesBabelfish\errorbatches\*.errbatch.txt)
+SQL rewrite oppties  : 0
+Session log          : C:\Users\smpet\Documents\BabelfishCompass\AdvancedSQLPuzzlesBabelfish\log\session-log-AdvancedSQLPuzzlesBabelfish-bbf.3.4.0-2024-Jan-15-12.38.43.html
+Assessment report    : C:\Users\smpet\Documents\BabelfishCompass\AdvancedSQLPuzzlesBabelfish\report-AdvancedSQLPuzzlesBabelfish-bbf.3.4.0-2024-Jan-15-12.38.50.html
+================================================================================
