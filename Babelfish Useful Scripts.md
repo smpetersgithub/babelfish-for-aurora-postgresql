@@ -21,7 +21,7 @@ These scripts typically help with configuration, diagnostics, and compatibility 
 -------
 
 3. **Escape Hatches Configuration:**
-   Adjusting Babelfish escape hatches, which control how certain SQL Server behaviors are handled.
+   Adjusting Babelfish escape hatches controls how certain SQL Server behaviors are handled.
    ```sql
    EXECUTE sp_babelfish_configure 'escape_hatch_session_setting', 'ignore';
    EXECUTE sp_babelfish_configure 'escape_hatch_storage_engine', 'ignore';
@@ -44,7 +44,7 @@ These scripts typically help with configuration, diagnostics, and compatibility 
 -------
 
 6. **Security and User Management:**
-   Managing users and permissions, especially important due to differences in security models between SQL Server and PostgreSQL.
+   Managing users and permissions is especially important due to differences in security models between SQL Server and PostgreSQL.
    ```sql
    CREATE USER myUser WITH PASSWORD 'myPassword';
    GRANT ALL PRIVILEGES ON DATABASE myDatabase TO myUser;
