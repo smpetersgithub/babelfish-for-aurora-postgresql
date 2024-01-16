@@ -19,6 +19,8 @@ How to modify the Python script:
 
 :exclamation:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Encountering all zeros in the output file might indicate an encoding issue. A quick fix is to copy the content into a new text file, particularly if the original was generated in SSMS.
 
+----------
+
 Please contact me with any questions and comments.
 
 Happy Coding!
