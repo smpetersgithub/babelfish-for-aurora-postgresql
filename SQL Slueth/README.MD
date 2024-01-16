@@ -2,7 +2,9 @@
 
 SQL Sleuth is a user-friendly keyword search tool designed to scan through specified files for SQL keywords, tallying and reporting their frequency.
 
-Installation is straightforward: download python_script.py and the accompanying configuration file, placing them in any directory on a Windows system.
+Installation is straightforward: Download python_script.py and the accompanying configuration file, placing them in any directory on a Windows system.
+The configuration file contains the keywords to search for.  Modify as needed.
+The output will be <input filename>_output.txt
 
 How to use SQL Sleuth:
 
