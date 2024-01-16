@@ -6,7 +6,7 @@ This repository assumes you understand Babelfish for Aurora PostgreSQL and the C
 
 ----------------------------
 
-Here is a listing of all files and directories. This list may not be up to date.
+Here is a listing of all files and directories. This list may not be up to date, as this project is ongoing.
 
 **Compatibility Test**    
 *  This directory contains SQL scripts used to validate SQL Server's syntax compatibility with Babelfish for Aurora PostgreSQL. 
