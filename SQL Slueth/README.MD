@@ -11,4 +11,4 @@ How to use SQL Sleuth:
 *  Designate the 'config_file' variable with the path of your configuration file (e.g., 'configuration.txt').
 *  Assign the 'input_file' variable with the path of the SQL file you're looking to examine.
 
-:exclamation mark: Encountering all zeros in the output file might indicate an encoding issue. A quick fix is to copy the content into a new text file, particularly if the original was generated in SSMS.
+*️⃣       Encountering all zeros in the output file might indicate an encoding issue. A quick fix is to copy the content into a new text file, particularly if the original was generated in SSMS.
