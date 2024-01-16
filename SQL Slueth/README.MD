@@ -1,0 +1,11 @@
+# SQL Sleuth
+
+SQL Sleuth is a user-friendly keyword search tool designed to scan through specified files for SQL keywords, tallying and reporting their frequency.
+
+Installation is straightforward: download python_script.py and the accompanying configuration file, placing them in any directory on a Windows system.
+
+How to use SQL Sleuth:
+
+*  Designate the 'config_file' variable with the path of your configuration file (e.g., 'configuration.txt').
+*  Assign the 'input_file' variable with the path of the SQL file you're looking to examine.
+*  Encountering all zeros in the output file might indicate an encoding issue. A quick fix is to copy the content into a new text file, particularly if the original was generated in SSMS.
