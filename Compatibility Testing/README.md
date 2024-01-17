@@ -4,7 +4,7 @@ This directory includes scripts designed to evaluate compatibility between Babel
 
 🌩️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I have included comments concerning any findings related to Babelfish compatibility in the scripts.  I recommend performing a keyword search for "Babelfish" to quickly review any errors, notes, findings, etc., in the provided scripts.
 
-❗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;See the readme `Compass Commands.md` to copy and paste Compass command prompts.
+❗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;See **Compass Commands.md** to copy and paste Compass command prompts.
 
 -----------
 
