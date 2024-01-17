@@ -11,7 +11,7 @@ It's a practical way to gauge the complexity of the databases. Currently, it's s
 
 *  Download python_script.py and the accompanying configuration file, placing them in any directory on a Windows system.    
 *  The configuration file contains the keywords to search for.  Modify as needed.    
-*  The output will be \<input_filename>_output.txt\    
+*  The output will be \<input_filename>_output.txt   
 
 ---------
 ### Modifying the Python script
