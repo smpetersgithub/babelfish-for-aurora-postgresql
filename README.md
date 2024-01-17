@@ -2,7 +2,6 @@
 
 This GitHub repository hosts scripts pertinent to Babelfish for Aurora PostgreSQL.
 
-This repository assumes you understand Babelfish for Aurora PostgreSQL and the Compass utility for accessing compatibility.
 
 ----------------------------
 ### File Listings
