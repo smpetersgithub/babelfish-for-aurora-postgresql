@@ -592,6 +592,7 @@ Operand data type NULL is invalid for sum operator.
 */----------------------------------------------------
 PRINT('12 - NULL and VALUES keyword - Runs successfully in Babelfish, errors in SQL Server');
 GO
+
 --Statement 1
 WITH cte_MyValues AS
 (
@@ -631,6 +632,11 @@ Nullable UNIQUE constraint is not supported. Please use babelfishpg_tsql.escape_
 */----------------------------------------------------
 PRINT('14 - FOREIGN KEY, UNIQUE, NOT NULL constraints');
 GO
+
+DROP TABLE IF EXISTS Child;
+DROP TABLE IF EXISTS Parent;
+GO
+
 CREATE TABLE Parent
 (
 ParentID INTEGER UNIQUE NOT NULL --Added the NOT NULL for Babelfish to run without error
@@ -704,6 +710,9 @@ Error: Global Temporary Table
 PRINT('16 - Global Temporary Table');
 GO
 
+DROP TABLE IF EXISTS ##GlobalTemporaryTable;
+GO
+
 CREATE TABLE ##GlobalTemporaryTable
 (
 HelloWorld  VARCHAR(100)
@@ -762,6 +771,10 @@ INSERT INTO #SourceTable (ID, TableType, EmployeeName, Department) VALUES (2, 'S
 INSERT INTO #SourceTable (ID, TableType, EmployeeName, Department) VALUES (3, 'Source', 'Sammy Source', 'Finance');
 GO
 
+DROP TABLE IF EXISTS #SourceTable;
+DROP TABLE IF EXISTS #TargetTable;
+GO
+
 --------------------------------------------------------------------
 
 MERGE #TargetTable AS trgt
@@ -791,6 +804,9 @@ schema "babelfish_data" does not exist
 
 ----------------------------------------------------*/
 PRINT('18 - XML data type');
+GO
+
+DROP TABLE IF EXISTS #SampleXmlTable;
 GO
 
 CREATE TABLE #SampleXmlTable
@@ -849,6 +865,156 @@ FROM
   #SampleXmlTable
 WHERE 
   Data.exist('/Books/Book[Author="John Doe"]') = 1;
+GO
 
+DROP TABLE IF EXISTS #SampleXmlTable;
+GO
 
+/*----------------------------------------------------
+Error: ALTER statements
+
+The following will error per documentation
+ALTER DATABASE
+ALTER DATABASE SCOPED CONFIGURATION
+ALTER DATABASE SCOPED CREDENTIAL
+ALTER DATABASE SET HADR
+ALTER FUNCTION
+ALTER INDEX
+ALTER PROCEDURE statement
+ALTER SCHEMA
+ALTER SERVER CONFIGURATION
+ALTER SERVICE, BACKUP/RESTORE SERVICE MASTER KEY clause
+ALTER VIEW
+
+'ALTER DATABASE' is not currently supported in Babelfish
+
+----------------------------------------------------*/
+PRINT('19 - ALTER statements');
+GO
+
+ALTER DATABASE babelfish SET RECOVERY FULL;
+
+/*----------------------------------------------------
+Error: INSERT... DEFAULT VALUES
+
+----------------------------------------------------*/
+PRINT('20 - DEFAULT VALUES (this runs successfully)');
+GO
+
+DROP TABLE IF EXISTS #DefaultValues;
+GO
+
+CREATE TABLE #DefaultValues
+(
+myInt     INTEGER DEFAULT 0,
+myDefault VARCHAR(100) DEFAULT 'My Default Value'
+);
+GO
+
+--According to the AWS documentation, this operation is expected to result in an error; however, it executes without issue in Babelfish.
+INSERT INTO #DefaultValues DEFAULT VALUES;
+
+DROP TABLE IF EXISTS #DefaultValues;
+GO
+
+/*----------------------------------------------------
+Error: READTEXT
+
+'READTEXT' is not currently supported in Babelfish
+
+----------------------------------------------------*/
+PRINT('21 - READTEXT');
+GO
+
+DROP TABLE IF EXISTS #DocumentTable;
+GO
+
+CREATE TABLE #DocumentTable
+(
+    DocID INT PRIMARY KEY,
+    DocContent TEXT
+);
+GO
+
+DECLARE @ptrval VARBINARY(16);
+SELECT @ptrval = TEXTPTR(DocContent)
+FROM #DocumentTable
+WHERE DocID = 1;
+
+READTEXT #DocumentTable.DocContent @ptrval 0 100;
+GO
+
+DROP TABLE IF EXISTS #DocumentTable;
+GO
+
+/*----------------------------------------------------
+Error: ROWGUIDCOL
+
+syntax error near 'ROWGUIDCOL' at line 5 and character position 48
+
+----------------------------------------------------*/
+PRINT('22 - ROWGUIDCOL');
+GO
+
+DROP TABLE IF EXISTS #ExampleTable;
+GO
+
+-- Create a table with an identity column and a ROWGUIDCOL column
+CREATE TABLE #ExampleTable (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    GuidColumn UNIQUEIDENTIFIER DEFAULT NEWID() ROWGUIDCOL
+);
+GO
+
+-- Insert data into the table
+INSERT INTO #ExampleTable DEFAULT VALUES;
+INSERT INTO #ExampleTable DEFAULT VALUES; -- Insert a couple of rows to update the identity and ROWGUID values
+GO
+
+-- Use system functions to return the last identity and ROWGUID values
+SELECT 
+    @@IDENTITY AS LastIdentityValue, -- Returns the last identity value generated in the current session
+    @@ROWCOUNT AS RowsAffected,      -- Returns the number of rows affected by the last operation
+    (SELECT TOP 1 GuidColumn FROM #ExampleTable ORDER BY ID DESC) AS LastRowGuidValue -- Technique to retrieve the last ROWGUID value inserted
+GO
+
+DROP TABLE IF EXISTS #ExampleTable;
+GO
+
+/*----------------------------------------------------
+Error: ROWGUIDCOL
+
+'$IDENTITY' is not currently supported in Babelfish
+
+----------------------------------------------------*/
+PRINT('23 - $IDENTITY');
+GO
+
+DROP TABLE IF EXISTS #ExampleTable;
+GO
+
+-- Create a table with an identity column and a ROWGUIDCOL column
+CREATE TABLE #ExampleTable (
+    ID INT IDENTITY(1,1) PRIMARY KEY
+);
+GO
+
+-- Insert data into the table
+INSERT INTO #ExampleTable DEFAULT VALUES;
+INSERT INTO #ExampleTable DEFAULT VALUES; -- Insert a couple of rows to update the identity and ROWGUID values
+GO
+
+DECLARE @minidentval INT;
+DECLARE @maxidentval INT;
+DECLARE @nextidentval INT;
+
+SELECT @minidentval = MIN($IDENTITY),
+       @maxidentval = MAX($IDENTITY)
+FROM   #ExampleTable;
+
+PRINT(CONCAT('@minidentval= ', @minidentval));
+PRINT(CONCAT('@maxidentval= ', @maxidentval));
+GO
+
+DROP TABLE IF EXISTS #ExampleTable;
 GO
