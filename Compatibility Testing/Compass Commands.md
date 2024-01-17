@@ -2,15 +2,17 @@
 
 Quick commands to run the compass reports on the files provided in this directory.
 
-❗Use double quotes in the file name if the script has spaces
+❗Use double quotes in the file name if the script has spaces.
 
 [The full instructions can be found here](https://aws.amazon.com/blogs/database/deep-dive-into-babelfish-compass/)    
+
+**Install the Compass utility at C:\BabelfishCompass\**    
 
 -----------------
 **Verify Installation**
 
 ```cmd
-BabelfishCompass.bat -help
+C:\BabelfishCompass\BabelfishCompass.bat -help
 ```
 
 -----------------
