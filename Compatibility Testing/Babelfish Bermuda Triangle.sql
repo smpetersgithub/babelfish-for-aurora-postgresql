@@ -1018,3 +1018,12 @@ GO
 
 DROP TABLE IF EXISTS #ExampleTable;
 GO
+
+/*----------------------------------------------------
+Error: WAITFORDELAY
+
+--Need to test
+
+----------------------------------------------------*/
+  PRINT('23 - WAITFOR DELAY');
+WAITFOR DELAY '00:00:05'; -- Wait for 5 seconds
