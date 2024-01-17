@@ -16,6 +16,9 @@ Here is a listing of files:
 
 *  **Babelfish Bermuda Triangle.sql** - This script contains SQL syntax that is not compatible with Babelfish.  I recommend running this script along with a Compass report and reviewing the output to understand how to best utilize the Compass report.  This file is named after the Bermuda Triangle, a place believed to have supernatural powers where a number of aircraft and ships are said to have disappeared under mysterious circumstances, often with their instruments (i.e., compasses) believed not to work.
 
+*  **Deadlock Creation** - This script can be used to check the behavior of deadlocks.
+  
+*  **Isolation Levels** - This script can be used to check the behavior of the different isolation levels.    
 ---------------------
 
 #### Below is the output from the Babelfish Berumuda Triangle.sql vs the Compass report.     
