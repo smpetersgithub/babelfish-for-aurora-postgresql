@@ -23,7 +23,7 @@ C:\BabelfishCompass\BabelfishCompass.bat AdvancedSQLPuzzles "c:\BabelfishCompass
 ```
 
 ```cmd
-C:\BabelfishCompass\BabelfishCompass.bat AdvancedSQLPuzzles "c:\BabelfishCompass\Advanced SQL Puzzles Babelfish.sql" --replace
+C:\BabelfishCompass\BabelfishCompass.bat AdvancedSQLPuzzles "c:\BabelfishCompass\Advanced SQL Puzzles Babelfish.sql" -replace
 ```
 
 ```cmd
@@ -38,7 +38,7 @@ C:\BabelfishCompass\BabelfishCompass.bat BabelfishBermudaTriangle "c:\BabelfishC
 ```
 
 ```cmd
-C:\BabelfishCompass\BabelfishCompass.bat BabelfishBermudaTriangle "c:\BabelfishCompass\Babelfish Bermuda Triangle.sql" --replace
+C:\BabelfishCompass\BabelfishCompass.bat BabelfishBermudaTriangle "c:\BabelfishCompass\Babelfish Bermuda Triangle.sql" -replace
 ```
 
 ------------------
@@ -49,7 +49,7 @@ C:\BabelfishCompass\BabelfishCompass.bat BehaviorOfNulls "c:\BabelfishCompass\Be
 ```
 
 ```cmd
-C:\BabelfishCompass\BabelfishCompass.bat BehaviorOfNulls "c:\BabelfishCompass\Behavior of Nulls Babelfish.sql" --replace
+C:\BabelfishCompass\BabelfishCompass.bat BehaviorOfNulls "c:\BabelfishCompass\Behavior of Nulls Babelfish.sql" -replace
 ```
 
 ------------------
@@ -60,7 +60,7 @@ C:\BabelfishCompass\BabelfishCompass.bat DeadlockCreation "c:\BabelfishCompass\D
 ```
 
 ```cmd
-C:\BabelfishCompass\BabelfishCompass.bat DeadlockCreation "c:\BabelfishCompass\Deadlock Creation.sql.sql" --replace
+C:\BabelfishCompass\BabelfishCompass.bat DeadlockCreation "c:\BabelfishCompass\Deadlock Creation.sql.sql" -replace
 ```
 
 ------------------
@@ -71,7 +71,7 @@ C:\BabelfishCompass\BabelfishCompass.bat IsolationLevels "c:\BabelfishCompass\Is
 ```
 
 ```cmd
-C:\BabelfishCompass\BabelfishCompass.bat IsolationLevels "c:\BabelfishCompass\Isolation Levels.sql" --replace
+C:\BabelfishCompass\BabelfishCompass.bat IsolationLevels "c:\BabelfishCompass\Isolation Levels.sql" -replace
 ```
 
 ------------------
