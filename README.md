@@ -15,8 +15,9 @@ Here is a listing of all files and directories. This list may not be up to date,
 *  This directory contains a keyword search utility that analyzes a SQL Server script for predefined keywords.  This utility helps in understanding the complexity of an SQL script.
 
 **Files**    
-*  Babelfish Useful Scripts.sql - This script contains a growing list of useful SQL scripts to run on Babelfish for Aurora PostgreSQL.
-
+*  Babelfish Useful Scripts.md - A collection of useful SQL statements to run on Babelfish for Aurora PostgreSQL.
+*  Migration to PostgreSQL Process.md - A summary of items to account for when migrating to a new database.
+*  SQL Server to PostgreSQL Feature Comparison.md - A summary of differences between SQL Server and PostgreSQL.
 ----------------------------
 
 I have several other Github directories containing SQL Server and PostgreSQL scripts that you may find beneficial.   
