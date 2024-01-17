@@ -56,11 +56,11 @@ C:\BabelfishCompass\BabelfishCompass.bat BehaviorOfNulls "c:\BabelfishCompass\Be
 **Deadlock Creation.sql**    
 
 ```cmd
-C:\BabelfishCompass\BabelfishCompass.bat DeadlockCreation "c:\BabelfishCompass\Deadlock Creation.sql.sql"
+C:\BabelfishCompass\BabelfishCompass.bat DeadlockCreation "c:\BabelfishCompass\Deadlock Creation.sql"
 ```
 
 ```cmd
-C:\BabelfishCompass\BabelfishCompass.bat DeadlockCreation "c:\BabelfishCompass\Deadlock Creation.sql.sql" -replace
+C:\BabelfishCompass\BabelfishCompass.bat DeadlockCreation "c:\BabelfishCompass\Deadlock Creation.sql" -replace
 ```
 
 ------------------
