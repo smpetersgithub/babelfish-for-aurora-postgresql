@@ -62,61 +62,125 @@ Msg 33557097, Level 16, State 1, Line 583
 syntax error near 'WHERE' at line 6 and character position 0
 12 - NULL and VALUES keyword - Runs successfully in Babelfish, errors in SQL Server
 13 - UNIQUE constraint
-Msg 33557097, Level 16, State 1, Line 618
+Msg 33557097, Level 16, State 1, Line 619
 Nullable UNIQUE constraint is not supported. Please use babelfishpg_tsql.escape_hatch_unique_constraint to ignore or add a NOT NULL constraint
 14 - FOREIGN KEY, UNIQUE, NOT NULL constraints
-Msg 33557097, Level 16, State 1, Line 642
+Msg 33557097, Level 16, State 1, Line 648
 syntax error at or near "FOREIGN"
-Msg 33557097, Level 16, State 1, Line 652
+Msg 33557097, Level 16, State 1, Line 658
 relation "child" does not exist
-Msg 33557097, Level 16, State 1, Line 656
+Msg 33557097, Level 16, State 1, Line 662
 relation "child" does not exist
 15 - LAG, LEAD with IGNORE NULLS
-Msg 11717, Level 15, State 1, Line 685
+Msg 11717, Level 15, State 1, Line 691
 syntax error near 'OVER' at line 13 and character position 38
 16 - Global Temporary Table
-Msg 33557097, Level 16, State 1, Line 707
-'GLOBAL TEMPORARY TABLE' is not currently supported in Babelfish
 Msg 33557097, Level 16, State 1, Line 713
 'GLOBAL TEMPORARY TABLE' is not currently supported in Babelfish
+Msg 33557097, Level 16, State 1, Line 716
+'GLOBAL TEMPORARY TABLE' is not currently supported in Babelfish
+Msg 33557097, Level 16, State 1, Line 722
+'GLOBAL TEMPORARY TABLE' is not currently supported in Babelfish
 17 - Merge Statement
-Msg 33557097, Level 16, State 1, Line 767
+Msg 33557097, Level 16, State 1, Line 780
 'MERGE' is not currently supported in Babelfish
+Msg 33557097, Level 16, State 1, Line 796
+relation "#targettable" does not exist
 18 - XML data type
-Msg 33557097, Level 16, State 1, Line 842
+Msg 33557097, Level 16, State 1, Line 858
 'XML NODES' is not currently supported in Babelfish
 19 - ALTER statements
-Msg 33557097, Level 16, State 1, Line 876
+Msg 33557097, Level 16, State 1, Line 895
 'ALTER DATABASE' is not currently supported in Babelfish
 21 - READTEXT
-Msg 33557097, Level 16, State 1, Line 923
+Msg 33557097, Level 16, State 1, Line 944
 'READTEXT' is not currently supported in Babelfish
 22 - ROWGUIDCOL
-Msg 33557097, Level 16, State 1, Line 941
+Msg 33557097, Level 16, State 1, Line 965
 syntax error near 'ROWGUIDCOL' at line 5 and character position 48
-Msg 33557097, Level 16, State 1, Line 946
+Msg 33557097, Level 16, State 1, Line 970
 relation "#exampletable" does not exist
-Msg 33557097, Level 16, State 1, Line 951
+Msg 33557097, Level 16, State 1, Line 975
 relation "#exampletable" does not exist
 23 - $IDENTITY
-Msg 33557097, Level 16, State 1, Line 983
+Msg 33557097, Level 16, State 1, Line 1011
 '$IDENTITY' is not currently supported in Babelfish
-```
+24 - WAITFOR DELAY
+Msg 33557097, Level 16, State 1, Line 1031
+'WAITFOR' is not currently supported in Babelfish
+25 - Global Variables / System Functions
+Msg 33557097, Level 16, State 1, Line 1046
+function sys.def_sortorder_id() does not exist
+Msg 33557097, Level 16, State 1, Line 1048
+function sys.pack_received() does not exist
+Msg 33557097, Level 16, State 1, Line 1050
+To use @@DBTS, set 'babelfishpg_tsql.escape_hatch_rowversion' to 'ignore'
+Msg 33557097, Level 16, State 1, Line 1052
+function sys.langid() does not exist
+Msg 33557097, Level 16, State 1, Line 1054
+function sys.remserver() does not exist
+Msg 33557097, Level 16, State 1, Line 1056
+function sys.connections() does not exist
+Msg 33557097, Level 16, State 1, Line 1058
+function sys.cpu_busy() does not exist
+Msg 33557097, Level 16, State 1, Line 1060
+function sys.idle() does not exist
+Msg 33557097, Level 16, State 1, Line 1062
+function sys.io_busy() does not exist
+Msg 33557097, Level 16, State 1, Line 1064
+function sys.pack_sent() does not exist
+Msg 33557097, Level 16, State 1, Line 1066
+function sys.packet_errors() does not exist
+Msg 33557097, Level 16, State 1, Line 1068
+function sys.timeticks() does not exist
+Msg 33557097, Level 16, State 1, Line 1070
+function sys.total_errors() does not exist
+Msg 33557097, Level 16, State 1, Line 1072
+function sys.total_read() does not exist
+Msg 33557097, Level 16, State 1, Line 1074
+function sys.total_write() does not exist
+26 - sys.dm_db_missing_index_groups
+Msg 33557097, Level 16, State 1, Line 1086
+relation "sys.dm_db_missing_index_groups" does not exist
+27 - sysjobsteps
+Msg 33557097, Level 16, State 1, Line 1102
+relation "msdb_dbo.sysjobsteps" does not exist
+27 - sp_helptext
+Msg 33557097, Level 16, State 1, Line 1121
+'sp_helptext' is not currently supported in Babelfish```
 
 **Compass Report**    
 ```txt
 --------------------------------------------------------------------------------
---- SQL features 'Not Supported' in Babelfish v.3.4.0 --- (total=23/16) --------
+--- SQL features 'Not Supported' in Babelfish v.3.4.0 --- (total=42/35) --------
 --------------------------------------------------------------------------------
 Back to Table of Contents
 
 Note: the estimated complexity of a not-supported feature (low/medium/high) is indicated in square brackets
 
+@@variables (13/13)
+    @@CONNECTIONS [medium] : 1
+    @@CPU_BUSY [medium] : 1
+    @@IDLE [medium] : 1
+    @@IO_BUSY [medium] : 1
+    @@LANGID [medium] : 1
+    @@PACK_RECEIVED [medium] : 1
+    @@PACK_SENT [medium] : 1
+    @@PACKET_ERRORS [medium] : 1
+    @@REMSERVER [medium] : 1
+    @@TIMETICKS [medium] : 1
+    @@TOTAL_ERRORS [medium] : 1
+    @@TOTAL_READ [medium] : 1
+    @@TOTAL_WRITE [medium] : 1
 Aggregate functions (1/1)
   ℹ STRING_AGG() WITHIN GROUP [medium] : 1
 Built-in functions (2/2)
   ℹ STRING_SPLIT(), with 3 arguments [medium] : 1
   ℹ TEXTPTR() [medium] : 1
+Catalogs (3/3)
+  ℹ Catalog reference sys.dm_db_missing_index_details [medium] : 1
+  ℹ Catalog reference sys.dm_db_missing_index_group_stats [medium] : 1
+  ℹ Catalog reference sys.dm_db_missing_index_groups [medium] : 1
 Databases (1/1)
   ℹ ALTER DATABASE [medium] : 1
 DDL (1/1)
@@ -131,8 +195,12 @@ Identifiers (2/1)
     Special column name $IDENTITY [medium] : 2
 Operators (1/1)
     DISTINCT FROM operator [medium] : 1
-Miscellaneous SQL Features (1/1)
+System Stored Procedures (1/1)
+  ℹ EXECUTE procedure sp_helptext [high] : 1
+Miscellaneous SQL Features (3/3)
   ℹ READTEXT [high] : 1
+  ℹ Regular variable named @@v [low] : 1
+  ℹ WAITFOR DELAY [low] : 1
 XML (4/3)
   ℹ XML.exist() [medium] : 1
   ℹ XML.nodes() [medium] : 1
