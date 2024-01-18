@@ -1026,7 +1026,10 @@ Error: WAITFORDELAY
 
 ----------------------------------------------------*/
 PRINT('24 - WAITFOR DELAY');
+GO
+
 WAITFOR DELAY '00:00:05'; -- Wait for 5 seconds
+GO
 
 
 
@@ -1038,21 +1041,38 @@ does not exist errors
 
 ----------------------------------------------------*/
 PRINT('25 - Global Variables / System Functions');
+GO
+
 SELECT 'System' AS MyFunctionType,  '@@DEF_SORTORDER_ID'  AS MyFunction, @@DEF_SORTORDER_ID AS MyValue, 'No Microsoft documentation provided. Same as SELECT SERVERPROPERTY(SqlSortOrder);' AS Description
+GO
 SELECT 'System', '@@PACK_RECEIVED', @@PACK_RECEIVED, 'Returns the number of input packets read from the network by SQL Server since it was last started.'
+GO
 SELECT 'Configuration' AS MyFunctionType, '@@DBTS' AS MyFunction, CAST(@@DBTS AS VARCHAR(255)) AS MyValue, 'This function returns the value of the current timestamp data type for the current database.' AS MyDescription
+GO
 SELECT 'Configuration', '@@LANGID', CAST(@@LANGID AS VARCHAR(255)), 'Returns the local language identifier (ID) of the language that is currently being used.'
+GO
 SELECT 'Configuration', '@@REMSERVER', CAST(@@REMSERVER AS VARCHAR(255)), 'Returns the name of the remote SQL Server database server as it appears in the login record.'
+GO
 SELECT 'Statistical' AS MyFunctionType, '@@CONNECTIONS' AS MyFunction, @@CONNECTIONS AS MyValue, 'This function returns the number of attempted connections - both successful and unsuccessful - since SQL Server was last started.' AS MyDescription
+GO
 SELECT 'Statistical', '@@CPU_BUSY', @@CPU_BUSY, 'This function returns the amount of time that SQL Server has spent in active operation since its latest start. @@CPU_BUSY returns a result measured in CPU time increments, or "ticks." This value is cumulative for all CPUs, so it may exceed the actual elapsed time. To convert to microseconds, multiply by @@TIMETICKS.'
+GO
 SELECT 'Statistical', '@@IDLE', @@IDLE, 'Returns the time that SQL Server has been idle since it was last started. The result is in CPU time increments, or "ticks," and is cumulative for all CPUs, so it may exceed the actual elapsed time. Multiply by @@TIMETICKS to convert to microseconds.'
+GO
 SELECT 'Statistical', '@@IO_BUSY', @@IO_BUSY, 'Returns the time that SQL Server has spent performing input and output operations since SQL Server was last started. The result is in CPU time increments ("ticks"), and is cumulative for all CPUs, so it may exceed the actual elapsed time. Multiply by @@TIMETICKS to convert to microseconds.'
+GO
 SELECT 'Statistical', '@@PACK_SENT', @@PACK_SENT, 'Returns the number of output packets written to the network by SQL Server since it was last started.'
+GO
 SELECT 'Statistical', '@@PACKET_ERRORS', @@PACKET_ERRORS, 'Returns the number of network packet errors that have occurred on SQL Server connections since SQL Server was last started.'
+GO
 SELECT 'Statistical', '@@TIMETICKS', @@TIMETICKS, 'Returns the number of microseconds per tick.'
+GO
 SELECT 'Statistical', '@@TOTAL_ERRORS', @@TOTAL_ERRORS, 'Returns the number of disk write errors encountered by SQL Server since SQL Server last started.'
+GO
 SELECT 'Statistical', '@@TOTAL_READ', @@TOTAL_READ, 'Returns the number of disk reads, not cache reads, by SQL Server since SQL Server was last started.'
+GO
 SELECT 'Statistical', '@@TOTAL_WRITE', @@TOTAL_WRITE, 'Returns the number of disk writes by SQL Server since SQL Server was last started.'
+GO
 
 /*----------------------------------------------------
 Error: Missing Index
@@ -1062,6 +1082,7 @@ does not exist errors
 
 ----------------------------------------------------*/
 PRINT('26 - sys.dm_db_missing_index_groups');
+GO
 SELECT *
 FROM    sys.dm_db_missing_index_groups AS mig INNER JOIN
         sys.dm_db_missing_index_group_stats AS migs ON migs.group_handle = mig.index_group_handle INNER JOIN
@@ -1077,6 +1098,7 @@ does not exist errors
 
 ----------------------------------------------------*/  
 PRINT('27 - sysjobsteps');
+GO
 SELECT *
 FROM    msdb.dbo.sysjobsteps s INNER JOIN 
         msdb.dbo.sysjobs AS j ON s.job_id = j.job_id;
@@ -1089,7 +1111,8 @@ does not exist errors
 --Need to test
 
 ----------------------------------------------------*/ 
-  PRINT('27 - sp_helptext');
+PRINT('27 - sp_helptext');
+GO
 --Babelfish error
 --'sp_helptext' is not currently supported in Babelfish
 DECLARE @vTableVariable TABLE(SpText VARCHAR(MAX));
