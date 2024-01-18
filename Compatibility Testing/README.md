@@ -148,6 +148,7 @@ relation "msdb_dbo.sysjobsteps" does not exist
 27 - sp_helptext
 Msg 33557097, Level 16, State 1, Line 1121
 'sp_helptext' is not currently supported in Babelfish```
+```
 
 **Compass Report**    
 ```txt
