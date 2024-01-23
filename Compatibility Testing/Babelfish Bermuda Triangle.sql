@@ -1123,3 +1123,16 @@ SELECT * FROM @vTableVariable;
 
 
 id numeric(20,0) identity(1,1) not null
+
+-------------------------------------------------
+-------------------------------------------------
+-------------------------------------------------
+--generation expression is not immutable
+CREATE TABLE Temp
+(
+	--[RelationID] [dbo].[ID] IDENTITY(1,1) NOT NULL,
+	Name varchar(100) NOT NULL,
+	LineNumber tinyint NOT NULL,
+	RelationCode  AS (CONVERT(VARCHAR(50),CASE WHEN Name = '' AND LineNumber=(0) THEN NULL ELSE [Name] + CONVERT(VARCHAR(5),LineNumber,0) END,0)),
+);
+
