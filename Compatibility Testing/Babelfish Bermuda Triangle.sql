@@ -1120,3 +1120,6 @@ DECLARE @vStoredProcedureName VARCHAR(255) = 'spTest';
 INSERT INTO @vTableVariable
 EXEC sp_helptext @vStoredProcedureName;
 SELECT * FROM @vTableVariable;
+
+
+id numeric(20,0) identity(1,1) not null
