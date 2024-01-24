@@ -1136,3 +1136,12 @@ CREATE TABLE Temp
 	RelationCode  AS (CONVERT(VARCHAR(50),CASE WHEN Name = '' AND LineNumber=(0) THEN NULL ELSE [Name] + CONVERT(VARCHAR(5),LineNumber,0) END,0)),
 );
 
+-------------------------------------------------
+-------------------------------------------------
+-------------------------------------------------
+
+--identity column must have precision 18 or less
+CREATE TABLE #Test
+(
+id [numeric](20, 0) IDENTITY(1,1) NOT NULL
+);
