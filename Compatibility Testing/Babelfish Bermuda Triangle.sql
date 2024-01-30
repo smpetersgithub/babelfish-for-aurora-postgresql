@@ -1121,9 +1121,6 @@ INSERT INTO @vTableVariable
 EXEC sp_helptext @vStoredProcedureName;
 SELECT * FROM @vTableVariable;
 
-
-id numeric(20,0) identity(1,1) not null
-
 -------------------------------------------------
 -------------------------------------------------
 -------------------------------------------------
@@ -1133,7 +1130,7 @@ CREATE TABLE Temp
 	--[RelationID] [dbo].[ID] IDENTITY(1,1) NOT NULL,
 	Name varchar(100) NOT NULL,
 	LineNumber tinyint NOT NULL,
-	RelationCode  AS (CONVERT(VARCHAR(50),CASE WHEN Name = '' AND LineNumber=(0) THEN NULL ELSE [Name] + CONVERT(VARCHAR(5),LineNumber,0) END,0)),
+	RelationCode  AS (CONVERT(VARCHAR(50),CASE WHEN Name = '' AND LineNumber=(0) THEN NULL ELSE [Name] + CONVERT(VARCHAR(5),LineNumber,0) END,0))
 );
 
 -------------------------------------------------
