@@ -1149,6 +1149,8 @@ id [numeric](20, 0) IDENTITY(1,1) NOT NULL
 -------------------------------------------------
 -------------------------------------------------
 -------------------------------------------------
+--The table `common_range` is a Calendar Table.
+--I will need to provide the DDL to create this table
 begin
    declare @i int
    set @i = 1
