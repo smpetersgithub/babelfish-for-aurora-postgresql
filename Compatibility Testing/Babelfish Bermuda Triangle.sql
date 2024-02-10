@@ -32,6 +32,9 @@ ALTER TABLE #EmployeePayRecords ALTER COLUMN EndDate DATE NOT NULL;
 ALTER TABLE #EmployeePayRecords ALTER COLUMN PayRate MONEY NOT NULL;
 GO
 
+--This will give a "tuple" error when trying to comment out the [NOT] NULL
+ALTER TABLE #EmployeePayRecords ADD myAlterTableTest tinyint /*NOT NULL*/ default 0;
+
 --PRIMARY KEY
 ALTER TABLE #EmployeePayRecords ADD CONSTRAINT PK_FiscalYearCalendar
                                     PRIMARY KEY (EmployeeID,FiscalYear);
@@ -1142,3 +1145,20 @@ CREATE TABLE #Test
 (
 id [numeric](20, 0) IDENTITY(1,1) NOT NULL
 );
+
+-------------------------------------------------
+-------------------------------------------------
+-------------------------------------------------
+begin
+   declare @i int
+   set @i = 1
+   insert into common_range(datval, intval) select convert(datetime, @i), @i
+   while @i * 2 < 73049
+   begin
+       insert into common_range(datval, intval) 
+       select convert(datetime, intval * 2), intval * 2 from common_range where intval >= @i union all
+       select convert(datetime, intval * 2 + 1), intval * 2 + 1 from common_range where intval >= @i 
+       set @i = @i * 2
+   end
+end
+go
