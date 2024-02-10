@@ -11,9 +11,6 @@ Here is a listing of all files and directories. This list may not be up to date,
 **Compatibility Test**    
 *  This directory contains SQL scripts used to validate SQL Server's syntax compatibility with Babelfish for Aurora PostgreSQL. 
 
-**SQL Sleuth**    
-*  This directory contains a keyword search utility that analyzes a SQL Server script for predefined keywords.  This utility helps in understanding the complexity of an SQL script.
-
 **Files**    
 *  **Babelfish Functionality Limitations.xlsx** - A spreadsheet of the [unsupported functionality](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish-compatibility.tsql.limitations-unsupported.html).  For supported functionality see [this link](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish-compatibility.supported-functionality-table.html).  There is also this [Babelfish procedure reference](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Appendix.Babelfish.Functions.html).
 *  **Babelfish Useful Scripts.md** - A collection of useful SQL statements to run on Babelfish for Aurora PostgreSQL.
