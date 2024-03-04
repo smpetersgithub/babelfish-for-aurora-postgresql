@@ -1164,3 +1164,19 @@ begin
    end
 end
 go
+
+
+--------------
+--------------
+--Babelfish supports creating views (possibly tables) that have the same name with different case.
+--need to research
+DROP view IF EXISTS myTest;
+GO
+
+CREATE VIEW myTest AS
+SELECT 
+'hello world1' as mytest,
+'hello world2' as MYTEST;
+GO
+
+SELECT * FROM myTest;
